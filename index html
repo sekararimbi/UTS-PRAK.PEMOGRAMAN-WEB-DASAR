@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Restoran Sekar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>Restoran Sekar</h1>
+</header>
+
+<!-- NAV -->
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Menu</a>
+    <a href="#">Registrasi</a>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+    <!-- SECTION PRODUK -->
+    <section class="cards">
+        <div class="card">
+            <h3>Nasi Goreng</h3>
+            <p>Rp 15.000</p>
+        </div>
+        <div class="card">
+            <h3>Mie Ayam</h3>
+            <p>Rp 12.000</p>
+        </div>
+        <div class="card">
+            <h3>Ayam Geprek</h3>
+            <p>Rp 18.000</p>
+        </div>
+    </section>
+
+    <!-- FORM REGISTRASI -->
+    <section>
+        <h2>Registrasi</h2>
+        <form id="formRegis">
+            <input type="text" id="nama" placeholder="Nama" required>
+            <small id="errNama"></small>
+
+            <input type="email" id="email" placeholder="Email" required>
+            <small id="errEmail"></small>
+
+            <input type="number" id="telp" placeholder="No HP" required>
+            <small id="errTelp"></small>
+
+            <select id="gender">
+                <option value="">Pilih Gender</option>
+                <option value="L">Laki-laki</option>
+                <option value="P">Perempuan</option>
+            </select>
+
+            <label>
+                <input type="checkbox" id="setuju"> Setuju
+            </label>
+
+            <button type="submit">Daftar</button>
+        </form>
+    </section>
+
+    <!-- SECTION DINAMIS -->
+    <section>
+        <h2>Menu Dinamis</h2>
+        <ul id="listMenu"></ul>
+
+        <input type="text" id="inputMenu" placeholder="Tambah menu">
+        <button onclick="tambahMenu()">Tambah</button>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Restoran Sekar</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
