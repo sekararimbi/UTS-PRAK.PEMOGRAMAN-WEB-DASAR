@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restoran Nusantara</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== SOAL 1: Semantik HTML5 ===== -->
+
+  <!-- Tag Semantik 1: <header> -->
+  <header>
+    <div class="logo">🍜 Restoran Velved Bite</div>
+    <!-- Tag Semantik 2: <nav> -->
+    <nav>
+      <ul>
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#daftar-menu">Menu Dinamis</a></li>
+        <li><a href="#registrasi">Registrasi</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Tag Semantik 3: <main> -->
+  <main>
+
+    <!-- ===== HERO SECTION ===== -->
+    <!-- Tag Semantik 4: <section> -->
+    <section id="beranda" class="hero">
+      <h1>Selamat Datang di Restoran Velved Bite</h1>
+      <p>Nikmati cita rasa masakan Indonesia yang autentik dan lezat.</p>
+      <a href="#menu" class="btn-hero">Lihat Menu Kami</a>
+    </section>
+
+    <!-- ===== SOAL 2: FLEXBOX — KARTU PRODUK ===== -->
+    <section id="menu" class="section-menu">
+      <h2>Menu Unggulan</h2>
+      <p class="subtitle">Pilihan terbaik dari dapur kami untuk Anda</p>
+
+      <div class="card-container">
+        <div class="card">
+          <div class="card-img">🍜</div>
+          <h3>Mie Ayam Spesial</h3>
+          <p>Mie kenyal dengan topping ayam bumbu rempah dan bakso pilihan.</p>
+          <span class="harga">Rp 25.000</span>
+        </div>
+        <div class="card">
+          <div class="card-img">🍛</div>
+          <h3>Nasi Padang</h3>
+          <p>Nasi putih pulen dengan lauk rendang, gulai, dan sambal hijau.</p>
+          <span class="harga">Rp 35.000</span>
+        </div>
+        <div class="card">
+          <div class="card-img">🦐</div>
+          <h3>Udang Saus Tiram</h3>
+          <p>Udang segar ditumis dengan saus tiram dan bumbu rahasia chef.</p>
+          <span class="harga">Rp 45.000</span>
+        </div>
+        <div class="card">
+          <div class="card-img">🥘</div>
+          <h3>Soto Betawi</h3>
+          <p>Soto berkuah santan gurih dengan isian daging sapi dan kentang.</p>
+          <span class="harga">Rp 30.000</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SOAL 5: DOM DINAMIS ===== -->
+    <section id="daftar-menu" class="section-dinamis">
+      <h2>Daftar Menu (Dinamis)</h2>
+      <p class="subtitle">Tambah atau hapus menu secara langsung</p>
+
+      <div class="form-tambah">
+        <input type="text"  id="input-nama"   placeholder="Nama Menu"    />
+        <input type="text"  id="input-emoji"  placeholder="Emoji (mis: 🍕)" />
+        <input type="number" id="input-harga" placeholder="Harga (Rp)"   min="0" />
+        <button onclick="tambahMenu()">+ Tambah Menu</button>
+      </div>
+      <p id="error-dinamis" class="error-msg"></p>
+
+      <div id="menu-list" class="menu-list"></div>
+    </section>
+
+    <!-- ===== SOAL 3 & 4: FORM REGISTRASI + VALIDASI JS ===== -->
+    <section id="registrasi" class="section-form">
+      <h2>Registrasi Pengguna</h2>
+      <p class="subtitle">Daftar untuk mendapatkan promo eksklusif!</p>
+
+      <div class="form-wrapper">
+        <div class="form-group">
+          <!-- Input 1: text -->
+          <label for="nama">Nama Lengkap <span class="wajib">*</span></label>
+          <input type="text" id="nama" placeholder="Masukkan nama lengkap" />
+          <span class="error" id="err-nama"></span>
+        </div>
+
+        <div class="form-group">
+          <!-- Input 2: email -->
+          <label for="email">Email <span class="wajib">*</span></label>
+          <input type="email" id="email" placeholder="contoh@email.com" />
+          <span class="error" id="err-email"></span>
+        </div>
+
+        <div class="form-group">
+          <!-- Input 3: password -->
+          <label for="password">Password <span class="wajib">*</span></label>
+          <input type="password" id="password" placeholder="Minimal 8 karakter" minlength="8" />
+          <span class="error" id="err-password"></span>
+        </div>
+
+        <div class="form-group">
+          <!-- Input 4: number (nomor telepon) -->
+          <label for="telp">No. Telepon <span class="wajib">*</span></label>
+          <input type="number" id="telp" placeholder="Masukkan nomor telepon" min="1" />
+          <span class="error" id="err-telp"></span>
+        </div>
+
+        <div class="form-group">
+          <!-- Input 5: select -->
+          <label for="kota">Kota Domisili <span class="wajib">*</span></label>
+          <select id="kota">
+            <option value="">-- Pilih Kota --</option>
+            <option value="medan">Medan</option>
+            <option value="jakarta">Jakarta</option>
+            <option value="bandung">Bandung</option>
+            <option value="surabaya">Surabaya</option>
+            <option value="yogyakarta">Yogyakarta</option>
+          </select>
+          <span class="error" id="err-kota"></span>
+        </div>
+
+        <div class="form-group">
+          <!-- Input 6: radio -->
+          <label>Jenis Kelamin <span class="wajib">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="gender" value="L" /> Laki-laki</label>
+            <label><input type="radio" name="gender" value="P" /> Perempuan</label>
+          </div>
+          <span class="error" id="err-gender"></span>
+        </div>
+
+        <div class="form-group">
+          <!-- Input 7: checkbox -->
+          <label>
+            <input type="checkbox" id="setuju" />
+            Saya menyetujui syarat &amp; ketentuan
+          </label>
+          <span class="error" id="err-setuju"></span>
+        </div>
+
+        <button class="btn-submit" onclick="validasiForm()">Daftar Sekarang</button>
+        <div id="sukses-msg" class="sukses-msg"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Tag Semantik 5: <footer> -->
+  <footer>
+    <p>© 2026 Restoran Velved Bite. Dibuat untuk UTS Praktikum Pemrograman Web Dasar.</p>
+    <p>FIKTI – Universitas Muhammadiyah Sumatera Utara</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
